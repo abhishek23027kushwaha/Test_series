@@ -654,7 +654,7 @@ Contributions, issues, and feature requests are welcome!
 **Abhishek Kushwaha**
 
 [![Email](https://img.shields.io/badge/Email-abhishek8888raj%40gmail.com-8E5BFF?style=for-the-badge&logo=gmail&logoColor=white)](mailto:abhishek8888raj@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-monika0712-181717?style=for-the-badge&logo=github)](https://github.com/monika0712)
+[![GitHub](https://img.shields.io/badge/GitHub-abhishek23027kushwaha-181717?style=for-the-badge&logo=github)](https://github.com/abhishek23027kushwaha)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-6d5bf0?style=for-the-badge&logo=vercel&logoColor=white)](https://interviewpreparationportal.netlify.app/)
 
 ### ⭐ If this project helped you, consider giving it a star — it really helps!
