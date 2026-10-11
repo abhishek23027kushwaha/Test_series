@@ -1,0 +1,730 @@
+.page {
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding: 12px 64px 16px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BACKGROUND BLOBS
+========================= */
+
+.blobOne,
+.blobTwo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 0;
+  animation: float 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.blobOne {
+  width: 480px;
+  height: 480px;
+  top: -220px;
+  right: -160px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(109, 91, 240, 0.25),
+    rgba(109, 91, 240, 0)
+  );
+}
+
+.blobTwo {
+  width: 380px;
+  height: 380px;
+  bottom: -160px;
+  left: -140px;
+  background: radial-gradient(
+    circle at 60% 60%,
+    rgba(6, 182, 212, 0.2),
+    rgba(6, 182, 212, 0)
+  );
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-24px);
+  }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  height: calc(100vh - 190px);
+  min-height: 0;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+
+.copy {
+  flex: 1 1 48%;
+  min-width: 0;
+  animation: fadeUp 0.7s ease both;
+}
+
+.visual {
+  flex: 1 1 52%;
+  min-width: 0;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: fadeUp 0.9s ease both;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   BRAND ROW
+   LOGO + TRUST BADGE
+========================= */
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 260px;
+  height: 58px;
+}
+
+.logoImage {
+  display: block;
+
+  width: 260px;
+  height: 78px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  filter: drop-shadow(
+    0 5px 12px rgba(109, 91, 240, 0.12)
+  );
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.logoImage:hover {
+  transform: translateY(-2px);
+
+  filter: drop-shadow(
+    0 8px 18px rgba(109, 91, 240, 0.2)
+  );
+}
+
+/* =========================
+   TRUST BADGE
+========================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: var(--primary);
+
+  background: rgba(109, 91, 240, 0.1);
+
+  border: 1px solid rgba(109, 91, 240, 0.18);
+
+  padding: 12px 14px;
+
+  border-radius: 999px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 800;
+
+  color: var(--text);
+
+  margin: 0 0 14px;
+}
+
+.titleAccent {
+  background: linear-gradient(
+    120deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================
+   TAGLINE
+========================= */
+
+.tagline {
+  font-size: 16px;
+  line-height: 1.55;
+
+  color: var(--text-muted);
+
+  margin: 0 0 24px;
+
+  max-width: 480px;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+}
+
+.actionBtn {
+  padding: 13px 24px;
+
+  font-size: 15px;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+
+  box-shadow:
+    0 10px 24px rgba(109, 91, 240, 0.28);
+}
+
+.actionBtn:hover {
+  transform: translateY(-2px);
+}
+
+.loginBtn {
+  box-shadow: none;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+
+  max-width: 420px;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 800;
+
+  color: var(--text);
+}
+
+.statLabel {
+  font-size: 12px;
+
+  color: var(--text-muted);
+
+  margin-top: 2px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 30px;
+
+  background: var(--border);
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.imageWrap {
+  position: relative;
+
+  width: 100%;
+  max-width: 460px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 30px 60px rgba(31, 35, 51, 0.16);
+
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   FLOATING CARDS
+========================= */
+
+.floatCard {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  padding: 12px 16px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--text);
+
+  box-shadow:
+    0 14px 30px rgba(31, 35, 51, 0.12);
+
+  max-width: 240px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.floatCard:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 34px rgba(31, 35, 51, 0.18);
+}
+
+.floatCardTop {
+  top: -18px;
+  left: -30px;
+
+  animation:
+    floatCardTop 5s ease-in-out infinite;
+}
+
+.floatCardBottom {
+  bottom: -14px;
+  right: -20px;
+
+  animation:
+    floatCardBottom 5.5s ease-in-out infinite;
+
+  animation-delay: 0.5s;
+}
+
+@keyframes floatCardTop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes floatCardBottom {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================
+   FLOAT ICON
+========================= */
+
+.floatIcon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: rgba(109, 91, 240, 0.12);
+
+  color: var(--primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   FEATURE STRIP
+========================= */
+
+.featureStrip {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+/* =========================
+   FEATURE CARD
+========================= */
+
+.featureCard {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  padding: 14px 16px;
+
+  color: var(--text);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(109, 91, 240, 0.35);
+
+  box-shadow:
+    0 16px 30px rgba(31, 35, 51, 0.1);
+}
+
+/* =========================
+   FEATURE CONTENT
+========================= */
+
+.featureCopy {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.featureTitle {
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.featureText {
+  font-size: 12.5px;
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  color: var(--text-muted);
+}
+
+/* =========================
+   FEATURE ICON
+========================= */
+
+.featureIcon {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--secondary)
+    );
+
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+  .page {
+    height: auto;
+    min-height: auto;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+
+    padding: 20px 32px 20px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: auto;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 40px;
+
+    padding-top: 10px;
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brandRow {
+    justify-content: center;
+  }
+
+  .tagline {
+    max-width: 560px;
+  }
+
+  .stats {
+    justify-content: center;
+  }
+
+  .floatCard {
+    display: none;
+  }
+
+  .featureStrip {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    margin-top: 40px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .page {
+    height: auto;
+    min-height: auto;
+
+      overflow: hidden;
+
+
+    padding: 16px 20px 20px;
+  }
+
+  .hero {
+    gap: 32px;
+  }
+
+  /* Logo and badge become vertical on small screens */
+
+  .brandRow {
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    width: 100%;
+    height: auto;
+
+    justify-content: center;
+  }
+
+  .logoImage {
+    width: 260px;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 58px;
+
+    object-fit: contain;
+  }
+
+  .badge {
+    font-size: 11px;
+
+    padding: 7px 12px;
+
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 1.18;
+  }
+
+  .tagline {
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    max-width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 10px;
+  }
+
+  .actionBtn {
+    width: 100%;
+  }
+
+  .stats {
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 18px;
+  }
+
+  .featureStrip {
+    grid-template-columns: 1fr;
+
+    margin-top: 32px;
+  }
+
+  .featureCard {
+    padding: 16px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .stats {
+    gap: 12px;
+  }
+
+  .statValue {
+    font-size: 19px;
+  }
+
+  .statLabel {
+    font-size: 11px;
+  }
+}

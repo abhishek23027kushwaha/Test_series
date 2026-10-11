@@ -1,0 +1,185 @@
+.setupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setupRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.setupField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setupField.grow {
+  flex: 2;
+  min-width: 200px;
+}
+
+.setupField.narrow {
+  flex: 1;
+  min-width: 140px;
+}
+
+.fieldLabel {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .setupRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.historySection {
+  margin-top: 28px;
+}
+
+.historyTableWrap {
+  overflow-x: auto;
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.historyTable th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.historyTable td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.historyTable tr:last-child td {
+  border-bottom: none;
+}
+
+.scoreBadge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.detailsBtn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.detailsBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.timerBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.timer {
+  font-size: 20px;
+  font-weight: 700;
+  color: #dc2626;
+}
+
+.questionBlock {
+  margin-bottom: 16px;
+}
+
+.qNumber {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.assessRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.assessBtn {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.assessBtn.correct {
+  background: #dcfce7;
+  border-color: #16a34a;
+  color: #166534;
+}
+
+.assessBtn.wrong {
+  background: #fee2e2;
+  border-color: #dc2626;
+  color: #b91c1c;
+}
+
+.resultGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.resultStat {
+  text-align: center;
+  min-width: 0;
+}
+
+.resultValue {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .resultGrid {
+    gap: 8px;
+  }
+
+  .resultValue {
+    font-size: 20px;
+  }
+}

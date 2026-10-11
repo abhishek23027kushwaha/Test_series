@@ -1,0 +1,339 @@
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background:rgb(43, 42, 42);
+  border-right: 1px solid #221f2e;
+  color: #cfcde0;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 30;
+  animation: sidebarSlideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(139, 124, 246, 0.9) 45%, rgba(6, 182, 212, 0.6) 55%, transparent 100%);
+  background-size: 100% 260%;
+  animation: sidebarScan 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sidebarScan {
+  0% { background-position: 0 -160%; }
+  100% { background-position: 0 260%; }
+}
+
+/* Drifting diagonal light lines across the sidebar background */
+.sidebarLines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebarLine {
+  position: absolute;
+  left: -20%;
+  width: 180%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 124, 246, 0.35), transparent);
+  transform: rotate(-8deg);
+  animation: sidebarLineDrift 7s linear infinite;
+}
+
+.sidebarLine:nth-child(1) { top: 18%; animation-duration: 8s; opacity: 0.7; }
+.sidebarLine:nth-child(2) { top: 48%; animation-duration: 11s; animation-delay: 1.5s; opacity: 0.5; }
+.sidebarLine:nth-child(3) { top: 78%; animation-duration: 9.5s; animation-delay: 3s; opacity: 0.6; }
+
+@keyframes sidebarLineDrift {
+  0% { transform: translateX(-12%) rotate(-8deg); }
+  50% { transform: translateX(6%) rotate(-8deg); }
+  100% { transform: translateX(-12%) rotate(-8deg); }
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar::after,
+  .sidebarLine {
+    animation: none !important;
+  }
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0 22px;
+  text-decoration: none;
+}
+
+.logoBox {
+  width: 205px;
+  height: 70px;
+  background: #fcf8f8;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.45),
+    0 0 18px rgba(99,102,241,.15);
+  transition: all .3s ease;
+}
+
+.logoBox:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.5),
+    0 0 22px rgba(99,102,241,.25);
+}
+
+.logoImage {
+  width: 175px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.logo:hover {
+  transform: translateX(2px);
+  opacity: 0.92;
+}
+
+.logoMarkRing {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.logoMarkRing::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 14px;
+  background: conic-gradient(from 0deg, #8b7cf6, #06b6d4, #4f46e5, #8b7cf6);
+  opacity: 0.55;
+  filter: blur(6px);
+  animation: logoRingSpin 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes logoRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+.logoMark {
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 10px rgba(109, 91, 240, 0.55));
+  animation: logoPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: transform 0.25s ease;
+}
+
+.logo:hover .logoMark {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.logoWordmark {
+  font-size: 17px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.logoAccent {
+  background: linear-gradient(135deg, #a996ff, #6d5bf0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #a5a2bb;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  animation: linkFadeIn 0.4s ease both;
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 22px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #8b7cf6, #4f46e5);
+  transition: transform 0.25s ease;
+}
+
+.link:hover {
+  background: #1e1c2c;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.linkIcon {
+  transition: transform 0.25s ease;
+}
+
+.link:hover .linkIcon {
+  transform: scale(1.15);
+}
+
+.linkActive {
+  background: #4f46e5;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+}
+
+.linkActive::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.linkActive:hover {
+  transform: translateX(0);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.promo {
+  margin-top: 12px;
+  border-radius: 14px;
+  padding: 16px 14px;
+  background: linear-gradient(160deg, #3a2e6e, #24204a);
+  text-align: center;
+  animation: linkFadeIn 0.5s ease 0.4s both, promoGlow 3.5s ease-in-out infinite;
+  transition: transform 0.25s ease;
+}
+
+.promo:hover {
+  transform: translateY(-3px);
+}
+
+.promoIcon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b7cf6, #6d5bf0);
+  color: #fff;
+  font-size: 18px;
+  box-shadow: 0 0 0 6px rgba(139, 124, 246, 0.15), 0 6px 14px rgba(109, 91, 240, 0.4);
+  animation: promoIconPulse 2.4s ease-in-out infinite;
+}
+
+.promoText {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@keyframes sidebarSlideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes logoPop {
+  0% {
+    transform: scale(0.6) rotate(-10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes linkFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes promoGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(139, 124, 246, 0);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(139, 124, 246, 0.25);
+  }
+}
+
+@keyframes promoIconPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 6px rgba(139, 124, 246, 0.15), 0 6px 14px rgba(109, 91, 240, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(139, 124, 246, 0.22), 0 6px 18px rgba(109, 91, 240, 0.55);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .logoMark,
+  .logoMarkRing::before,
+  .link,
+  .promo,
+  .promoIcon {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   MOBILE — slide-in drawer. Desktop layout above is untouched.
+========================================================= */
+@media (max-width: 760px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 250px;
+    max-width: 82vw;
+    z-index: 40;
+    animation: none;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+}

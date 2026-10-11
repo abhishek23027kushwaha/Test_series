@@ -1,0 +1,177 @@
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.input {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.search {
+  flex: 1;
+  min-width: 200px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.questionCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.questionCard:hover {
+  box-shadow: 0 8px 24px rgba(31, 35, 51, 0.1);
+  transform: translateY(-1px);
+}
+
+.qTitle {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.qDesc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+  white-space: pre-wrap;
+}
+
+.badgeRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.easy { background: #dcfce7; color: #166534; }
+.medium { background: #fef3c7; color: #92400e; }
+.hard { background: #fee2e2; color: #b91c1c; }
+.subjectBadge { background: #e0e7ff; color: #3730a3; }
+.companyBadge { background: #f3f4f6; color: #374151; }
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.iconBtn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.iconBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.iconBtn.active,
+.solvedActive {
+  background: var(--success);
+  color: #fff;
+  border-color: var(--success);
+}
+
+.solvedActive:hover {
+  color: #fff;
+}
+
+.bookmarkActive {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.bookmarkActive:hover {
+  color: #fff;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* =========================================================
+   MOBILE — desktop rules above are untouched.
+========================================================= */
+@media (max-width: 640px) {
+  .questionCard {
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .actions .iconBtn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    padding: 20px;
+  }
+}
