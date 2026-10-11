@@ -651,9 +651,9 @@ Contributions, issues, and feature requests are welcome!
 
 <div align="center">
 
-**Monika Patil**
+**Abhishek Kushwaha**
 
-[![Email](https://img.shields.io/badge/Email-patilmonika931%40gmail.com-8E5BFF?style=for-the-badge&logo=gmail&logoColor=white)](mailto:patilmonika931@gmail.com)
+[![Email](https://img.shields.io/badge/Email-abhishek8888raj%40gmail.com-8E5BFF?style=for-the-badge&logo=gmail&logoColor=white)](mailto:abhishek8888raj@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-monika0712-181717?style=for-the-badge&logo=github)](https://github.com/monika0712)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-6d5bf0?style=for-the-badge&logo=vercel&logoColor=white)](https://interviewpreparationportal.netlify.app/)
 
